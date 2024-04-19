@@ -6,6 +6,7 @@ import os
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from articles_part import articles_app
+from flask_migrate import Migrate
 
 load_dotenv()
 
@@ -15,6 +16,9 @@ app.secret_key = os.environ["SECRET_KEY"]
 db.init_app(app)
 with app.app_context():
     db.create_all()
+
+
+migrate = Migrate(app, db)
 
 app.register_blueprint(articles_app)
 
