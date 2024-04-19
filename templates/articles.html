@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% from 'pagination_component.html' import render_pagination %}
 
 {%block title%}Статті на сайті{%endblock%}
 
@@ -17,7 +18,7 @@
 	</div>
 	{%endfor%}
 </div>
-
+{{render_pagination(articles,'articles_app.view_articles')}}
 </div>
 
 {%endblock%}
